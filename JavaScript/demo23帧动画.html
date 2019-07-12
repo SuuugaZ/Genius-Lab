@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 480px;
+            height: 480px;
+            background: url("./img/erik.jpg");
+        }
+    </style>
+
+</head>
+<body>
+<h1>Demo23</h1>
+<p>
+    实现一个帧动画
+</p>
+<div id="ani"></div>
+<script>
+    var ani=document.getElementById("ani");
+    var y;
+    var Y=0;
+    var t1=setInterval(function(){
+//        clearInterval(t2);
+        ani.style.backgroundPositionY=Y + 'px';
+        console.log(ani.style.backgroundPositionY);
+        if(Y>=-8160){
+            y=-480;
+            Y+=y;
+        }if(Y<=-8160){
+            clearInterval(t1);
+            var t2=setInterval(function(){
+                y = 480;
+                Y += y;
+                ani.style.backgroundPositionY=Y + 'px';
+                console.log(ani.style.backgroundPositionY);
+                if(Y==0){
+                    clearInterval(t2);
+                }
+            },50);
+        }
+    },50);
+
+//在js如何实现先递增，后递减
+//    如：i<5时递增 0,1，2，3，4,5 当i>5,开始递减 5,4,3,2,1,0。
+//   var(i=0；i++;i<5){
+//        i++;
+//   }
+//   if(i>=){
+//        i--;
+//   }
+//    当i>5时，开始i--,但是此时会出现死循环,如何解决？ 见demo27 循环里套循环
+
+</script>
+</body>
+</html>

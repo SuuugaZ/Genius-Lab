@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>demo32</h1>
+    <p>学习通用的数据用不同的数据结构进行存储，以及相互的转换</p>
+<script>
+    //对象转为数组：
+    var scoreObject = {
+        "Tony": {
+            "Math": 95,
+            "English": 79,
+            "Music": 68
+        },
+        "Simon": {
+            "Math": 100,
+            "English": 95,
+            "Music": 98
+        },
+        "Annie": {
+            "Math": 54,
+            "English": 65,
+            "Music": 88
+        }
+    };
+    console.log("对象转为数组");
+//  let i in obj 用来遍历json对象，i为对象的属性，scoreObject[i]为某一属性的值，和索引没关系
+//    var arr=[];
+//    for(let i in scoreObject){
+//        arr.push(scoreObject[i]);
+//    }
+//    console.log(arr);
+//    console.log(arr);
+//    console.log(scoreObject["Tony"]);
+//    如上有一个用来存储学习成绩的对象，编写一个函数，将其转为如下的二维数组
+//    var scoreArray = [
+//        ["Tony", 95, 79, 68],
+//    ……
+//    ];
+    var scoreArray=[];
+    for(var i in scoreObject){ //遍历，先找到对象的属性名，push到scoreArray数组中
+        var arr=[];
+        arr.push(i);
+        for(var j in scoreObject[i]){
+            //arr.push(j); 属性名
+            arr.push(scoreObject[i][j]); //属性值
+        }
+        scoreArray.push(arr);
+    }
+    console.log(scoreArray);
+
+</script>
+</body>
+</html>

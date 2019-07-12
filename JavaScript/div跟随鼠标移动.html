@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box1 {
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box1=document.getElementById("box1");
+            document.onmousemove=function(event){
+                event=event||window.event;
+                var left=event.clientX;
+                var top=event.clientY;
+                //如果不需要兼容IE8 把cilentX和clientY替换成pageX,pageY
+                //以下是需要兼容的情况
+                //需要获取scrollTop和scrollLeft的值
+                var st=document.body.scrollTop||document.documentElement.scrollTop;
+                var sl=document.body.scrollLeft||document.documentElement.scrollLeft;
+                box1.style.left=left+sl+"px";
+                box1.style.top=top+st+"px";
+            }
+        }
+    </script>
+</head>
+<body style="height: 1000px;width: 2000px;">
+    <div id="box1"></div>
+</body>
+</html>

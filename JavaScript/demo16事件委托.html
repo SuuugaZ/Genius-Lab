@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    .palette {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .palette li {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #000;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<h1>demo16</h1>
+<p>使用事件委托的方法 不需要使用遍历</p>
+<ul class="palette">
+    <li style="background-color:crimson"></li>
+    <li style="background-color:bisque"></li>
+    <li style="background-color:blueviolet"></li>
+    <li style="background-color:coral"></li>
+    <li style="background-color:chartreuse"></li>
+    <li style="background-color:darkolivegreen"></li>
+    <li style="background-color:cyan"></li>
+    <li style="background-color:#194738"></li>
+</ul>
+
+<p class="color-picker"></p>
+
+<script>
+//    先找到需要进行操作的DOM的父元素
+    var ul=document.querySelector(".palette");
+    ul.onclick=function(e){
+        var e=event||windown.event;
+        var target= e.target|| e.srcElement; //srcElement为IE中的属性
+        var p=document.getElementsByClassName("color-picker")[0];
+        if(target.nodeName.toLowerCase()=="li"){
+//            switch (target.style.backgroundColor){
+//                case "crimson":
+//                    p.innerHTML=target.style.backgroundColor;
+//                    p.style.color=target.style.backgroundColor;
+//                    break;
+//                case "bisque":
+//                    p.innerHTML=target.style.backgroundColor;
+//                    p.style.color=target.style.backgroundColor;
+//                    break;
+//                case "blueviolet":
+//                    p.innerHTML=target.style.backgroundColor;
+//                    p.style.color=target.style.backgroundColor;
+//                    break;
+//                case "coral":
+//                    p.innerHTML=target.style.backgroundColor;
+//                    p.style.color=target.style.backgroundColor;
+//                    break;
+//                case "chartreuse":
+//                    p.innerHTML=target.style.backgroundColor;
+//                    p.style.color=target.style.backgroundColor;
+//                    break;
+//                case "darkolivegreen":
+//                    p.innerHTML=target.style.backgroundColor;
+//                    p.style.color=target.style.backgroundColor;
+//                    break;
+//                case "cyan":
+//                    p.innerHTML=target.style.backgroundColor;
+//                    p.style.color=target.style.backgroundColor;
+//                    break;
+//                case "#194738":
+//                    p.innerHTML=target.style.backgroundColor;
+//                    p.style.color=target.style.backgroundColor;
+//                    break;
+//            }
+            p.innerHTML=target.style.backgroundColor;
+            p.style.color=target.style.backgroundColor;
+        }
+    }
+</script>
+
+</body>
+</html>

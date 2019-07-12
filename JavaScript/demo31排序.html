@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>demo31</h1>
+<p>将上面数组分别按元素对象的value值从小到大进行排序后输出</p>
+<p> sort()方法对数组的元素进行排序，并返回数组。默认排序顺序是根据unicode编码 <br/>
+    sort()方法需要接收一个比较函数作为参数，比较函数接收两个参数(参数将会传入数组中的元素，可以调用属性和方法) <br/>
+    function compare(a,b) { <br/>
+    if (a < b ) {  // 按某种排序标准进行比较, a 小于 b <br/>
+    return -1; <br/>
+    } <br/>
+    if (a > b ) { <br/>
+    return 1; <br/>
+    } <br/>
+    // a must be equal to b <br/>
+    return 0; <br/>
+    }<br/>
+    要比较数字而非字符串，比较函数可以简单的以 a 减 b，如下的函数将会将数组升序排列 <br/> function compareNumbers(a, b) { <br/>
+    return a - b; <br/>
+    } <br/>
+    sort 方法可以使用 函数表达式 方便地书写：<br/>
+    var numbers = [4, 2, 5, 1, 3]; <br/>
+    numbers.sort(function(a, b) { <br/>
+    return a - b; <br/>
+    }); <br/>
+    console.log(numbers);</p>
+
+<h2>如果是字符串进行排列，只调用sort()就行了</h2>
+<script>
+    var arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+//    将上面数组分别按从大到小以及从小到大进行排序后在console中输出
+    //从小到大
+    function compare(a,b){
+        return a-b;
+    }
+    console.log(arr1.sort(compare));
+    console.log(arr1.reverse(compare()));
+    var arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+//    将上面数组分别按字母顺序a-z及z-a进行排序，在console中输出
+    console.log(arr2.sort());
+    console.log(arr2.reverse());
+    var arr3 = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+//    将上面的二维数组，按照每个元素中第二个数从大到小的顺序进行排序输出，输出结果应该为：
+//    [[22, 63], [16, 60], [7, 44], [26, 35], [10, 14]]
+//    使用map()方法
+    var mapped = arr3.map(function(ar,i){
+        return {value:ar[1],index:i};  //输出一个object对象，value为排序的数字的值，index为数字所在的数组在一维数组中的索引值
+    });
+    mapped.sort(function(a,b){
+        return b.value-a.value;
+    });
+    var result = mapped.map(function(ar){
+        return arr3[ar.index];
+    });
+    console.log(result);
+//    将上面数组分别按元素对象的value值从小到大进行排序后输出
+    var arr4 = [
+        {
+            id: 1,
+            name: 'candy',
+            value: 40
+        }, {
+            id: 2,
+            name: 'Simon',
+            value: 50
+        }, {
+            id: 3,
+            name: 'Tony',
+            value: 45
+        }, {
+            id: 4,
+            name: 'Annie',
+            value: 60
+        }
+    ];
+    arr4.sort(function (a, b) {
+        return a.value- b.value;
+    });
+    console.log("按元素对象的value值从小到大进行排序:");
+    console.log(arr4);
+</script>
+</body>
+</html>

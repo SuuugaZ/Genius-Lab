@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    在js如何实现先递增，后递减
+//        如：i<5时递增 0,1，2，3，4,5 当i=5,开始递减 5,4,3,2,1,0。
+      for(var i=0;i<=5;i++){
+          console.log(i);
+          if(i>=5){
+              for(var j=i-1;j>=0;j--){
+                  console.log(j);
+                  i=0;
+              }
+          }
+      }
+
+</script>
+</body>
+</html>
